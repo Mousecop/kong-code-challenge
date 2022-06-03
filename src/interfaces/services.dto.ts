@@ -1,6 +1,6 @@
 import { ServiceEntity } from 'src/database/entities/service.entity';
 
-export class ListServicesResponse {
+export class ServiceDetailResponse {
   name: string;
 
   description: string;
@@ -25,4 +25,14 @@ export class CreateServiceBody {
   name: string;
 
   description: string;
+}
+
+export class ListServiceResponse {
+  services: Array<ServiceDetailResponse>;
+
+  constructor(servicesResult: Array<ServiceEntity>) {
+    this.services = servicesResult.map(
+      (service) => new ServiceDetailResponse(service),
+    );
+  }
 }
