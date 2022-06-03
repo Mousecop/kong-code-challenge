@@ -18,7 +18,7 @@ export class ServiceEntity extends BaseEntity {
   @Column({ type: 'varchar', nullable: false })
   serviceId: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: false })
   name: string;
 
   @Column({ type: 'varchar' })
