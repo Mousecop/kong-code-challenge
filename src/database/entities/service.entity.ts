@@ -12,7 +12,7 @@ import {
 // Extending Base Entity to have out-of-the box methods such as `findAndCount`
 export class ServiceEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
-  uuid: number;
+  uuid: string;
 
   @Index()
   @Column({ type: 'varchar', nullable: false })

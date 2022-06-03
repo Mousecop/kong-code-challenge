@@ -1,12 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import {
+  CreateServiceBody,
+  ListServicesResponse,
+} from './interfaces/services.dto';
 
-@Controller()
+@Controller('/v1/services')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Post()
+  async createService(
+    @Body() body: CreateServiceBody,
+  ): Promise<ListServicesResponse> {
+    return await this.appService.createService(body);
   }
 }
